@@ -4,6 +4,7 @@ from pathlib import Path
 
 import numpy as np
 from reportlab.lib import colors
+from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
@@ -26,6 +27,20 @@ styles.add(ParagraphStyle(name="CVH2", parent=styles["Heading2"], fontSize=12.5,
 styles.add(ParagraphStyle(name="CVSmall", parent=styles["BodyText"], fontSize=8, leading=10))
 styles.add(ParagraphStyle(name="CVNote", parent=styles["BodyText"], fontSize=8.5, leading=11,
     backColor=colors.HexColor("#FFF3CD"), borderPadding=6, spaceBefore=4, spaceAfter=6))
+styles.add(ParagraphStyle(name="CoverUniversity", parent=styles["Title"], fontName="Helvetica-Bold",
+    fontSize=16, leading=32, alignment=TA_CENTER, textColor=NAVY, spaceAfter=14))
+styles.add(ParagraphStyle(name="CoverLabel", parent=styles["BodyText"], fontName="Helvetica-Bold",
+    fontSize=12, leading=24, alignment=TA_CENTER, spaceBefore=10, spaceAfter=2))
+styles.add(ParagraphStyle(name="CoverText", parent=styles["BodyText"], fontSize=12,
+    leading=24, alignment=TA_CENTER, spaceAfter=6))
+
+# Double spacing for narrative text; tables remain compact for readability.
+styles["BodyText"].leading = 24
+styles["BodyText"].alignment = TA_JUSTIFY
+styles["CVSmall"].leading = 16
+styles["CVSmall"].alignment = TA_JUSTIFY
+styles["CVNote"].leading = 17
+styles["CVNote"].alignment = TA_JUSTIFY
 
 def footer(canvas, doc):
     canvas.saveState(); canvas.setFont("Helvetica", 8); canvas.setFillColor(colors.grey)
@@ -79,7 +94,25 @@ def main():
     cm = np.asarray(cnn["confusion_matrix"]); np.fill_diagonal(cm, 0)
     i, j = np.unravel_index(np.argmax(cm), cm.shape)
     names = audit["class_names"]
+    seal = Image(str(ROOT / "assets/uasd_seal.png"), width=1.3*inch, height=1.6*inch)
+    seal.hAlign = "CENTER"
     story = [
+        Spacer(1, .35*inch), seal,
+        Spacer(1, .2*inch),
+        Paragraph("UNIVERSIDAD AUTÓNOMA DE SANTO DOMINGO (UASD)", styles["CoverUniversity"]),
+        Spacer(1, .35*inch),
+        Paragraph("ASIGNATURA", styles["CoverLabel"]),
+        Paragraph("Ciencia de Datos II", styles["CoverText"]),
+        Spacer(1, .2*inch),
+        Paragraph("TEMA", styles["CoverLabel"]),
+        Paragraph("Unidad 02. Ejercicio 04:<br/><b>Clasificador visual con CNN y Model Card</b>", styles["CoverText"]),
+        Spacer(1, .25*inch),
+        Paragraph("PARTICIPANTE", styles["CoverLabel"]),
+        Paragraph("Victor Elvis Lorenzo", styles["CoverText"]),
+        Spacer(1, .15*inch),
+        Paragraph("PROFESOR", styles["CoverLabel"]),
+        Paragraph("Edwin Ramón José Nolasco", styles["CoverText"]),
+        PageBreak(),
         Paragraph("Clasificador visual reproducible con Fashion-MNIST", styles["CVTitle"]),
         Paragraph("Baseline denso y CNN · desempeño, costo, errores y Model Card", styles["CVSub"]),
         Paragraph("Universidad Autónoma de Santo Domingo · Ciencia de Datos II · Fraimel Trinidad · Prof. Edwin Ramón José Nolasco", styles["CVSmall"]),
@@ -96,8 +129,8 @@ def main():
         Paragraph(f"La clase más difícil para la CNN fue <b>{hard_cls}</b> (F1 {cnn['per_class'][hard_cls]['f1']:.3f}, recall {cnn['per_class'][hard_cls]['recall']:.3f}). La mayor confusión fue {names[i]} → {names[j]} ({int(np.asarray(metrics['models']['cnn']['confusion_matrix'])[i,j])} casos). Las imágenes son ejemplos concretos del test.", styles["BodyText"]),
         Spacer(1,5),
     ]
-    confusion = Image(str(ROOT / "reports/confusion_cnn.png"), width=3.22*inch, height=3.0*inch)
-    errors = Image(str(ROOT / "reports/cnn_errors.png"), width=3.22*inch, height=3.0*inch)
+    confusion = Image(str(ROOT / "reports/confusion_cnn.png"), width=3.12*inch, height=2.65*inch)
+    errors = Image(str(ROOT / "reports/cnn_errors.png"), width=3.12*inch, height=2.65*inch)
     visual = Table([[confusion, errors]], colWidths=[3.3*inch,3.3*inch])
     visual.setStyle(TableStyle([("VALIGN",(0,0),(-1,-1),"MIDDLE"),("ALIGN",(0,0),(-1,-1),"CENTER"),
                                 ("LEFTPADDING",(0,0),(-1,-1),2),("RIGHTPADDING",(0,0),(-1,-1),2)]))
