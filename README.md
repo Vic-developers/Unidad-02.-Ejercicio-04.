@@ -38,6 +38,10 @@ Use `docs/error_analysis_guide.md` para redactar comentarios sobre casos concret
 
 Consulte `docs/AI_USAGE.md`. Las métricas deben verificarse ejecutando el proyecto. El estudiante conserva responsabilidad sobre código, datos, resultados y conclusiones.
 
+## Guía de revisión de la rúbrica
+
+Consulte [`docs/EVIDENCE_MAP.md`](docs/EVIDENCE_MAP.md) para localizar la evidencia de cada criterio, revisar la decisión técnica y ver la salvedad de procedencia de LAB07.
+
 ## Referencias
 
 - Fashion-MNIST, Zalando Research: https://github.com/zalandoresearch/fashion-mnist

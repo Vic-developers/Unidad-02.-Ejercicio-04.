@@ -33,6 +33,8 @@ styles.add(ParagraphStyle(name="CoverLabel", parent=styles["BodyText"], fontName
     fontSize=12, leading=24, alignment=TA_CENTER, spaceBefore=10, spaceAfter=2))
 styles.add(ParagraphStyle(name="CoverText", parent=styles["BodyText"], fontSize=12,
     leading=24, alignment=TA_CENTER, spaceAfter=6))
+styles.add(ParagraphStyle(name="CVFinal", parent=styles["BodyText"], fontSize=9.5,
+    leading=19, alignment=TA_JUSTIFY))
 
 # Double spacing for narrative text; tables remain compact for readability.
 styles["BodyText"].leading = 24
@@ -134,7 +136,7 @@ def main():
     story += [visual, Spacer(1,4),
         Paragraph("A la izquierda: matriz de confusión. A la derecha: 25 predicciones incorrectas seleccionadas por orden del conjunto test. Las similitudes visuales son interpretaciones cualitativas; la matriz no demuestra causalidad.", styles["CVSmall"]),
         Paragraph("Alcance, IA y repositorio", styles["CVH2"]),
-        Paragraph("Fashion-MNIST es un benchmark educativo de imágenes pequeñas, centradas y monocromas. No demuestra preparación para fotos reales, OCR, medicina, vigilancia ni decisiones sobre personas. ChatGPT/Codex apoyó el scaffold, las pruebas y la redacción; el estudiante debe revisar los resultados y añadir cualquier herramienta o prompt adicional que haya utilizado. Repositorio de entrega: <link href='https://github.com/Vic-developers/Unidad-02.-Ejercicio-04..git' color='blue'>Unidad-02.-Ejercicio-04..git</link>.", styles["BodyText"])]
+        Paragraph("Fashion-MNIST es un benchmark educativo de imágenes pequeñas, centradas y monocromas. No se recibió el notebook original de LAB07; esta ejecución no se cotejó con evidencias previas del estudiante. No demuestra preparación para fotos reales, OCR, medicina, vigilancia ni decisiones sobre personas. ChatGPT/Codex apoyó el scaffold, las pruebas y la redacción; el estudiante debe revisar resultados y añadir cualquier otra herramienta o prompt que haya utilizado. Repositorio: <link href='https://github.com/Vic-developers/Unidad-02.-Ejercicio-04..git' color='blue'>Unidad-02.-Ejercicio-04..git</link>.", styles["CVFinal"])]
     doc = SimpleDocTemplate(str(OUT), pagesize=letter, rightMargin=.62*inch, leftMargin=.62*inch,
         topMargin=.5*inch, bottomMargin=.65*inch, title="Informe Ejercicio 04 Fashion-MNIST")
     doc.build(story, onFirstPage=footer, onLaterPages=footer)
