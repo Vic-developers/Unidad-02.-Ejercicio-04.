@@ -127,16 +127,20 @@ def main():
         Spacer(1,4), class_table(), Spacer(1,5),
         Paragraph(f"La clase más difícil para la CNN fue <b>{hard_cls}</b> (F1 {cnn['per_class'][hard_cls]['f1']:.3f}, recall {cnn['per_class'][hard_cls]['recall']:.3f}). La mayor confusión fue {names[i]} → {names[j]} ({int(np.asarray(metrics['models']['cnn']['confusion_matrix'])[i,j])} casos). Las imágenes son ejemplos concretos del test.", styles["BodyText"]),
         Spacer(1,5),
-    ]
-    confusion = Image(str(ROOT / "reports/confusion_cnn.png"), width=3.12*inch, height=2.65*inch)
-    errors = Image(str(ROOT / "reports/cnn_errors.png"), width=3.12*inch, height=2.65*inch)
-    visual = Table([[confusion, errors]], colWidths=[3.3*inch,3.3*inch])
-    visual.setStyle(TableStyle([("VALIGN",(0,0),(-1,-1),"MIDDLE"),("ALIGN",(0,0),(-1,-1),"CENTER"),
-                                ("LEFTPADDING",(0,0),(-1,-1),2),("RIGHTPADDING",(0,0),(-1,-1),2)]))
-    story += [visual, Spacer(1,4),
-        Paragraph("A la izquierda: matriz de confusión. A la derecha: 25 predicciones incorrectas seleccionadas por orden del conjunto test. Las similitudes visuales son interpretaciones cualitativas; la matriz no demuestra causalidad.", styles["CVSmall"]),
         Paragraph("Alcance, IA y repositorio", styles["CVH2"]),
-        Paragraph("Fashion-MNIST es un benchmark educativo de imágenes pequeñas, centradas y monocromas. No se recibió el notebook original de LAB07; esta ejecución no se cotejó con evidencias previas del estudiante. No demuestra preparación para fotos reales, OCR, medicina, vigilancia ni decisiones sobre personas. ChatGPT/Codex apoyó el scaffold, las pruebas y la redacción; el estudiante debe revisar resultados y añadir cualquier otra herramienta o prompt que haya utilizado. Repositorio: <link href='https://github.com/Vic-developers/Unidad-02.-Ejercicio-04..git' color='blue'>Unidad-02.-Ejercicio-04..git</link>.", styles["CVFinal"])]
+        Paragraph("Fashion-MNIST es un benchmark educativo de imágenes pequeñas, centradas y monocromas. No se recibió el notebook original de LAB07; esta ejecución no se cotejó con evidencias previas del estudiante. No demuestra preparación para fotos reales, OCR, medicina, vigilancia ni decisiones sobre personas. ChatGPT/Codex apoyó el scaffold, las pruebas y la redacción; el estudiante debe revisar resultados y añadir cualquier otra herramienta o prompt que haya utilizado. Repositorio: <link href='https://github.com/Vic-developers/Unidad-02.-Ejercicio-04..git' color='blue'>Unidad-02.-Ejercicio-04..git</link>.", styles["CVFinal"]),
+        PageBreak(),
+        Paragraph("Matriz de confusión de la CNN", styles["CVH2"]),
+        Paragraph("Conjunto de prueba (10,000 imágenes). La diagonal muestra aciertos; las celdas fuera de la diagonal muestran confusiones entre clases.", styles["CVSmall"]),
+    ]
+    confusion = Image(str(ROOT / "reports/confusion_cnn.png"), width=6.45*inch, height=5.73*inch)
+    confusion.hAlign = "CENTER"
+    story += [Spacer(1,5), confusion, PageBreak(),
+        Paragraph("Errores visuales de la CNN", styles["CVH2"]),
+        Paragraph("25 predicciones incorrectas del conjunto de prueba. Cada recuadro muestra etiqueta real y predicción; revise los pares visualmente similares con cautela.", styles["CVSmall"])]
+    errors = Image(str(ROOT / "reports/cnn_errors.png"), width=6.05*inch, height=6.30*inch)
+    errors.hAlign = "CENTER"
+    story += [Spacer(1,5), errors]
     doc = SimpleDocTemplate(str(OUT), pagesize=letter, rightMargin=.62*inch, leftMargin=.62*inch,
         topMargin=.5*inch, bottomMargin=.65*inch, title="Informe Ejercicio 04 Fashion-MNIST")
     doc.build(story, onFirstPage=footer, onLaterPages=footer)
