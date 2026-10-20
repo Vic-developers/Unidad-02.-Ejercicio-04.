@@ -17,6 +17,8 @@ Para GPU, use Linux/WSL2 con NVIDIA ya configurada: `uv sync --extra gpu`. En Co
 
 ## Resultados y evidencia
 
+El informe está disponible también en Word editable: `Informe_Ejercicio_04.docx`.
+
 La ejecución crea `reports/data_audit.json`, `reports/cv_metrics.json`, `reports/class_metrics.csv`, `reports/classification_reports.txt`, `reports/training_curves.png`, `reports/confusion_cnn.png`, `reports/cnn_errors.png` y los modelos `models/best_dense.keras` y `models/best_cnn.keras`. Este paquete incluye una ejecución real de esos artefactos en CPU; los tiempos corresponden al hardware informado en la auditoría. El test oficial de 10,000 imágenes se usa solo para evaluación final. Para actualizar métricas y figuras, vuelva a ejecutar el entrenamiento; genere el PDF con `uv run python scripts/build_report_pdf.py`. Repositorio de entrega: [Vic-developers/Unidad-02.-Ejercicio-04.](https://github.com/Vic-developers/Unidad-02.-Ejercicio-04.).
 
 ## Decisiones reproducibles
