@@ -1,0 +1,104 @@
+{
+  "seed": 42,
+  "class_names": [
+    "T-shirt/top",
+    "Trouser",
+    "Pullover",
+    "Dress",
+    "Coat",
+    "Sandal",
+    "Shirt",
+    "Sneaker",
+    "Bag",
+    "Ankle boot"
+  ],
+  "python": "3.12.13",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "cpu_count": 12,
+  "splits": {
+    "train": {
+      "n": 54000,
+      "image_shape": [
+        28,
+        28,
+        1
+      ],
+      "labels_shape": [
+        54000
+      ],
+      "pixel_min": 0.0,
+      "pixel_max": 1.0,
+      "class_counts": {
+        "T-shirt/top": 5400,
+        "Trouser": 5400,
+        "Pullover": 5400,
+        "Dress": 5400,
+        "Coat": 5400,
+        "Sandal": 5400,
+        "Shirt": 5400,
+        "Sneaker": 5400,
+        "Bag": 5400,
+        "Ankle boot": 5400
+      },
+      "images_sha256": "00c54d31c171d047682418bfe5e353b5a8cf2cef75f71d1ed390176db4805ca3",
+      "labels_sha256": "311ee98f11d6b2f2af052e7abada2a755e23876ca87053e956e86eaff820cfa5"
+    },
+    "validation": {
+      "n": 6000,
+      "image_shape": [
+        28,
+        28,
+        1
+      ],
+      "labels_shape": [
+        6000
+      ],
+      "pixel_min": 0.0,
+      "pixel_max": 1.0,
+      "class_counts": {
+        "T-shirt/top": 600,
+        "Trouser": 600,
+        "Pullover": 600,
+        "Dress": 600,
+        "Coat": 600,
+        "Sandal": 600,
+        "Shirt": 600,
+        "Sneaker": 600,
+        "Bag": 600,
+        "Ankle boot": 600
+      },
+      "images_sha256": "a6006123cd84378ddc6f87de07ce4f05ca65f82c9d89cfb461e3ddca40eaf840",
+      "labels_sha256": "e1944a04502a85f4ee6d930fd361fb882d4b1de17d671e956f20b846da60193b"
+    },
+    "test": {
+      "n": 10000,
+      "image_shape": [
+        28,
+        28,
+        1
+      ],
+      "labels_shape": [
+        10000
+      ],
+      "pixel_min": 0.0,
+      "pixel_max": 1.0,
+      "class_counts": {
+        "T-shirt/top": 1000,
+        "Trouser": 1000,
+        "Pullover": 1000,
+        "Dress": 1000,
+        "Coat": 1000,
+        "Sandal": 1000,
+        "Shirt": 1000,
+        "Sneaker": 1000,
+        "Bag": 1000,
+        "Ankle boot": 1000
+      },
+      "images_sha256": "0c0f08b9d95e81a9c662a7e200cbb82a22e7669e3a79c4e861585d1dbf736efd",
+      "labels_sha256": "d51d859896c55775b9e9e219b77ff03bcec1b6ac322f313544dc3f9e7bc94fae"
+    }
+  },
+  "tensorflow": "2.21.0",
+  "visible_gpus": []
+}

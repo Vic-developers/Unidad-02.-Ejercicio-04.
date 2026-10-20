@@ -1,0 +1,36 @@
+DENSE
+              precision    recall  f1-score   support
+
+ T-shirt/top       0.82      0.80      0.81      1000
+     Trouser       0.99      0.96      0.97      1000
+    Pullover       0.71      0.82      0.76      1000
+       Dress       0.77      0.93      0.84      1000
+        Coat       0.82      0.70      0.75      1000
+      Sandal       0.96      0.95      0.95      1000
+       Shirt       0.72      0.61      0.66      1000
+     Sneaker       0.93      0.94      0.94      1000
+         Bag       0.96      0.95      0.96      1000
+  Ankle boot       0.95      0.95      0.95      1000
+
+    accuracy                           0.86     10000
+   macro avg       0.86      0.86      0.86     10000
+weighted avg       0.86      0.86      0.86     10000
+
+
+CNN
+              precision    recall  f1-score   support
+
+ T-shirt/top       0.68      0.80      0.73      1000
+     Trouser       0.98      0.93      0.95      1000
+    Pullover       0.66      0.72      0.69      1000
+       Dress       0.72      0.86      0.78      1000
+        Coat       0.68      0.58      0.63      1000
+      Sandal       0.96      0.88      0.92      1000
+       Shirt       0.48      0.35      0.41      1000
+     Sneaker       0.86      0.93      0.89      1000
+         Bag       0.95      0.92      0.93      1000
+  Ankle boot       0.89      0.92      0.91      1000
+
+    accuracy                           0.79     10000
+   macro avg       0.79      0.79      0.78     10000
+weighted avg       0.79      0.79      0.78     10000

@@ -1,0 +1,23 @@
+[project]
+name = "inf8239-u02-cv"
+version = "1.0.0"
+description = "Comparacion reproducible de baseline denso y CNN en Fashion-MNIST"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "numpy>=1.26,<3",
+  "scikit-learn>=1.4,<2",
+  "matplotlib>=3.8,<4",
+  "pandas>=2.1,<3",
+]
+
+[project.optional-dependencies]
+cpu = ["tensorflow>=2.16,<2.22"]
+gpu = ["tensorflow[and-cuda]>=2.16,<2.22; platform_system != 'Windows'"]
+colab = ["tensorflow>=2.16,<2.22"]
+pdf = ["reportlab>=4,<5"]
+dev = ["pytest>=8,<9", "nbformat>=5.10,<6", "jupyter>=1,<2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
