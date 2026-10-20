@@ -1,5 +1,31 @@
 # Declaración de uso de IA
 
-Durante el armado de esta entrega se utilizó ChatGPT/Codex como apoyo para organizar el proyecto, proponer código y pruebas, revisar la documentación y generar la estructura del notebook. Prompt relevante del usuario: «Necesito uno parecido a esto, que cumpla con todo esto» junto con los requisitos del Ejercicio 04 y las instrucciones de Fashion-MNIST.
+## Herramientas
 
-En esta copia se ejecutaron los scripts de entrenamiento y el notebook sobre CPU con TensorFlow 2.21.0. Se verificaron la partición, métricas, hashes, figuras y pruebas (3 aprobadas). Una corrección importante fue tomar la decisión de modelo desde F1 macro de validación, dejando test para la evaluación final; los tiempos del informe previo no se reutilizaron porque la medición local produjo otros valores. El estudiante conserva responsabilidad sobre código, datos, conclusiones y referencias, y debe agregar cualquier otra herramienta o prompt que haya usado antes de entregar.
+Se utilizó ChatGPT/Codex como asistente para organizar el proyecto, proponer y revisar código, redactar documentación, preparar el notebook y generar el informe PDF. El estudiante debe revisar y poder explicar cada componente antes de presentarlo.
+
+## Prompts relevantes de esta conversación
+
+- «Necesito uno parecido a esto, que cumpla con todo esto», acompañado de los criterios del Ejercicio 04.
+- Las instrucciones de visión computacional con Fashion-MNIST para comparar baseline denso y CNN, calcular métricas/costos, examinar errores y completar Model Card.
+- «Agrégale esta hoja de presentación al documento PDF», con el formato académico solicitado, seguido de la instrucción para retirar el título, subtítulo y línea de autor que aparecían en la página interior.
+
+El estudiante debe añadir aquí cualquier herramienta o prompt usado fuera de esta conversación que haya influido en la entrega.
+
+## Partes verificadas
+
+- Notebook con celdas ejecutadas y resultados guardados.
+- Conteos, formas, rangos, distribución y hashes de las particiones en `reports/data_audit.json`.
+- Métricas agregadas y por clase, matrices, curvas, errores visuales y mediciones de costo guardadas en `reports/`.
+- Contratos de datos y predicción; en la ejecución registrada, `pytest` terminó con 3 pruebas aprobadas.
+- PDF revisado mediante renderizado de sus páginas; el ZIP contiene el informe y los artefactos del proyecto.
+
+## Correcciones realizadas
+
+- Se eligió el modelo usando F1 macro de validación y se reservó test para la evaluación final.
+- Se reportaron las mediciones de la ejecución local, en lugar de conservar cifras no verificadas del informe de referencia.
+- El informe se regeneró con portada centrada y después se retiraron el título, subtítulo y atribución repetidos en su página interior.
+
+## Procedencia y responsabilidad
+
+No se recibió el ZIP del proyecto base de visión ni el notebook original de LAB07. Por ello, este repositorio contiene una ejecución reproducible de Fashion-MNIST creada para los requisitos proporcionados; no se afirma que integre o verifique los archivos originales de LAB07. El estudiante debe cotejarla con sus evidencias de laboratorio, agregar cualquier material requerido por el docente y confirmar que puede explicar los datos, código, referencias y conclusiones.
